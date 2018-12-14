@@ -1,0 +1,73 @@
+﻿@model JulioRivero.Tesis.WebMVC.Models.DeficiencyViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DeficiencyViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kind)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kind)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Introduction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Introduction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Symptom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Symptom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prevention)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prevention)
+        </dd>
+
+
+    </dl>
+</div>
+
+
+
+
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<div class="btn-group">
+    <button class="btn">ACV</button>
+    <button class="btn">Hemiplejiá</button>
+    <button class="btn">Parálisis de Bell</button>
+</div>

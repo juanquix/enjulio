@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JulioRivero.Tesis.WebMVC", "JulioRivero.Tesis.WebMVC\JulioRivero.Tesis.WebMVC.csproj", "{45BE1F44-56F8-48DF-BDC9-1D920229A483}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JulioRivero.Tesis.Biz", "JulioRivero.Tesis.Biz\JulioRivero.Tesis.Biz.csproj", "{9A0C454B-D4D9-4E79-8213-FA23A559EEB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JulioRivero.Tesis.Contracts", "JulioRivero.Tesis.Contracts\JulioRivero.Tesis.Contracts.csproj", "{A96396AD-D254-44EA-8497-C1C052522FB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JulioRivero.Tesis.EFContext", "JulioRivero.Tesis.EFContext\JulioRivero.Tesis.EFContext.csproj", "{A7B549CE-0701-4CDB-907D-3AA1C503F80E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JulioRivero.Tesis.Entities", "JulioRivero.Tesis.Entities\JulioRivero.Tesis.Entities.csproj", "{DACE6667-5C2F-4F1A-96F4-9AC0E0E02724}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45BE1F44-56F8-48DF-BDC9-1D920229A483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45BE1F44-56F8-48DF-BDC9-1D920229A483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45BE1F44-56F8-48DF-BDC9-1D920229A483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45BE1F44-56F8-48DF-BDC9-1D920229A483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A0C454B-D4D9-4E79-8213-FA23A559EEB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A0C454B-D4D9-4E79-8213-FA23A559EEB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A0C454B-D4D9-4E79-8213-FA23A559EEB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A0C454B-D4D9-4E79-8213-FA23A559EEB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A96396AD-D254-44EA-8497-C1C052522FB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A96396AD-D254-44EA-8497-C1C052522FB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A96396AD-D254-44EA-8497-C1C052522FB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A96396AD-D254-44EA-8497-C1C052522FB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B549CE-0701-4CDB-907D-3AA1C503F80E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B549CE-0701-4CDB-907D-3AA1C503F80E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B549CE-0701-4CDB-907D-3AA1C503F80E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B549CE-0701-4CDB-907D-3AA1C503F80E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DACE6667-5C2F-4F1A-96F4-9AC0E0E02724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DACE6667-5C2F-4F1A-96F4-9AC0E0E02724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DACE6667-5C2F-4F1A-96F4-9AC0E0E02724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DACE6667-5C2F-4F1A-96F4-9AC0E0E02724}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
