@@ -170,6 +170,8 @@
     <Compile Include="Controllers\DeficiencyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImpairmentController.cs" />
+    <Compile Include="Controllers\IntoPreventionController.cs" />
+    <Compile Include="Controllers\PreventionController.cs" />
     <Compile Include="Controllers\RightController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -244,6 +246,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\IntoPrevention\" />
+    <Folder Include="Views\Prevention\" />
     <Folder Include="Views\Right\" />
     <Folder Include="Views\Role\" />
   </ItemGroup>
