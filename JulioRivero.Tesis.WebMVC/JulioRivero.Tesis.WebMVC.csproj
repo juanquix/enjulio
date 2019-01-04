@@ -242,14 +242,30 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Details.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\Role\Delete.cshtml" />
+    <Content Include="Views\Right\Index.cshtml" />
+    <Content Include="Views\Right\Create.cshtml" />
+    <Content Include="Views\Right\Details.cshtml" />
+    <Content Include="Views\Right\Edit.cshtml" />
+    <Content Include="Views\Right\Delete.cshtml" />
+    <Content Include="Views\Prevention\Index.cshtml" />
+    <Content Include="Views\Prevention\Create.cshtml" />
+    <Content Include="Views\Prevention\Details.cshtml" />
+    <Content Include="Views\Prevention\Edit.cshtml" />
+    <Content Include="Views\Prevention\Delete.cshtml" />
+    <Content Include="Views\IntoPrevention\Index.cshtml" />
+    <Content Include="Views\IntoPrevention\Details.cshtml" />
+    <Content Include="Views\IntoPrevention\Edit.cshtml" />
+    <Content Include="Views\IntoPrevention\Delete.cshtml" />
+    <Content Include="Views\IntoPrevention\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\IntoPrevention\" />
-    <Folder Include="Views\Prevention\" />
-    <Folder Include="Views\Right\" />
-    <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

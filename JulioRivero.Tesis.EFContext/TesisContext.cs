@@ -27,7 +27,25 @@ namespace JulioRivero.Tesis.EFContext
         public DbSet<Prevention> Preventions { get; set; }
         public DbSet<IntoPrevention> IntoPreventions { get; set; }
 
-     
+       // public System.Data.Entity.DbSet<JulioRivero.Tesis.WebMVC.Models.IntoPreventionViewModel> IntoPreventionViewModels { get; set; }
+
+        // public System.Data.Entity.DbSet<JulioRivero.Tesis.WebMVC.Models.PreventionViewModel> PreventionViewModels { get; set; }
+
+        //public System.Data.Entity.DbSet<JulioRivero.Tesis.WebMVC.Models.IntoPreventionViewModel> IntoPreventionViewModels { get; set; }
+
+        // public System.Data.Entity.DbSet<JulioRivero.Tesis.WebMVC.Models.PreventionViewModel> PreventionViewModels { get; set; }
+
+        // public System.Data.Entity.DbSet<JulioRivero.Tesis.WebMVC.Models.RightViewModel> RightViewModels { get; set; }
+
+        // public System.Data.Entity.DbSet<JulioRivero.Tesis.WebMVC.Models.RightViewModel> RightViewModels { get; set; }
+
+        // public System.Data.Entity.DbSet<JulioRivero.Tesis.WebMVC.Models.RightViewModel> RightViewModels { get; set; }
+
+        //public System.Data.Entity.DbSet<JulioRivero.Tesis.WebMVC.Models.RoleViewModel> RoleViewModels { get; set; }
+
+        // public System.Data.Entity.DbSet<JulioRivero.Tesis.WebMVC.Models.RoleViewModel> RoleViewModels { get; set; }
+
+
         // public System.Data.Entity.DbSet<JulioRivero.Tesis.WebMVC.Models.ImparirmentViewModel> ImparirmentViewModels { get; set; }
     }
 }
