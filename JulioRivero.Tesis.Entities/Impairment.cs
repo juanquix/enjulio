@@ -13,6 +13,6 @@ namespace JulioRivero.Tesis.Entities
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public ICollection<Impairment> imparirments { get; set; }
+        public ICollection<Deficiency> deficiencys { get; set; }
     }
 }

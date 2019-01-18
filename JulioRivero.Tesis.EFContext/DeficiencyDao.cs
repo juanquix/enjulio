@@ -56,6 +56,7 @@ namespace JulioRivero.Tesis.EFContext
                 var deficiencyUpdate = context.Deficiencys.SingleOrDefault(r => r.Id == deficiency.Id);
                 if (deficiencyUpdate != null)
                 {
+                    deficiencyUpdate.ImpairmentId = deficiency.ImpairmentId;
                     deficiencyUpdate.Kind = deficiency.Kind;
                     deficiencyUpdate.Name = deficiency.Name;
                     deficiencyUpdate.Introduction = deficiency.Introduction;

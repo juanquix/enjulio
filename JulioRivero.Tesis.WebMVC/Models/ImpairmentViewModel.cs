@@ -15,8 +15,8 @@ namespace JulioRivero.Tesis.WebMVC.Models
         public string Name { get; set; }
         [Display(Name = "Descripción")]
         public string Description { get; set; }
-        
 
-        // public ICollection<Imparirment> imparirments { get; set; }
+
+        public ICollection<DeficiencyViewModel> deficiencysViewModel { get; set; }
     }
 }

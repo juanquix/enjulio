@@ -21,7 +21,7 @@ namespace JulioRivero.Tesis.WebMVC
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            System.Data.Entity.Database.SetInitializer(new InitData());
+        //    System.Data.Entity.Database.SetInitializer(new InitData());
             Configure();
         }
         private void Configure()

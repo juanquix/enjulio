@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using JulioRivero.Tesis.EFContext;
+//using JulioRivero.Tesis.EFContext;
 using System.Data.Entity;
 using JulioRivero.Tesis.Entities;
 
 namespace JulioRivero.Tesis.WebMVC.App_Start
 {
-    public class InitData: CreateDatabaseIfNotExists<TesisContext>
-    {
-        protected override void Seed(TesisContext context)
-        {
-            base.Seed(context);
+    //public class InitData: CreateDatabaseIfNotExists<TesisContext>
+    //{
+    //    protected override void Seed(TesisContext context)
+    //    {
+    //        base.Seed(context);
             /*
             new List<TankTruck>
                 {
@@ -28,6 +28,6 @@ namespace JulioRivero.Tesis.WebMVC.App_Start
                    /*
         
         */
-    }
-    }
+    //}
+    //}
 }

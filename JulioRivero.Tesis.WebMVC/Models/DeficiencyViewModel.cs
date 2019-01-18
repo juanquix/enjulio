@@ -10,6 +10,7 @@ namespace JulioRivero.Tesis.WebMVC.Models
     {
         public int Id { get; set; }
         [Display(Name = "Tipo")]
+        public int ImpairmentId { get; set; }
         public string Kind { get; set; }
         [Display(Name = "Nombre")]
         public string Name { get; set; }
