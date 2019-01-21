@@ -37,17 +37,11 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         //    //return File(filename, "application/pdf", Server.HtmlEncode(filename));
 
         //}
-        public FileResult OpenPDF(int id)
+        public FileResult OpenPDF(string id)
         {
-            if (id == 1)
-            {
-                return File(Server.MapPath("~/Content/derechos-pcd-onu.pdf"), "application/pdf");
-            }
-            else if (true)
-            {
-                return File(Server.MapPath("~/Content/Ley-223-General-para-Personas-con-Discapacidad.pdf"), "application/pdf");
-            }
+            return File(Server.MapPath("~/Content/"+ id + ".pdf"), "application/pdf");
             
+            ////// return File(Server.MapPath("~/Content/default.pdf"), "application/pdf");
         }
         ////public FileStreamResult GetPDF()
         ////{
