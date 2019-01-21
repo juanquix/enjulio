@@ -201,6 +201,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\derechos-pcd-onu.pdf" />
+    <Content Include="Content\Ley-223-General-para-Personas-con-Discapacidad.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -262,6 +264,7 @@
     <Content Include="Views\IntoPrevention\Edit.cshtml" />
     <Content Include="Views\IntoPrevention\Delete.cshtml" />
     <Content Include="Views\IntoPrevention\Create.cshtml" />
+    <Content Include="Views\Right\OpenPDF.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

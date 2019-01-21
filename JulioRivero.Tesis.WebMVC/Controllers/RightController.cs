@@ -3,9 +3,13 @@ using JulioRivero.Tesis.Entities;
 using JulioRivero.Tesis.WebMVC.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
+using System.Text;
 
 namespace JulioRivero.Tesis.WebMVC.Controllers
 {
@@ -19,12 +23,37 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         }
 
         // GET: Right/Details/5
-        public ActionResult Details(int id)
-        {
-            var model = Mapper.Map<RightViewModel>(rightManager.GetById(id));
-            return View(model);
-        }
+        //public ActionResult Details(int id)
+        //{
+        //    var model = Mapper.Map<RightViewModel>(rightManager.GetById(id));
 
+
+        //    return View(model);
+        //}
+        // public ActionResult Details(int id)
+        //public FileStreamResult Details(int id)
+        //{
+        //    //string filename = @"~/Content/derechos-pcd-onu.pdf";
+        //    //return File(filename, "application/pdf", Server.HtmlEncode(filename));
+
+        //}
+        public FileResult OpenPDF(int id)
+        {
+            if (id == 1)
+            {
+                return File(Server.MapPath("~/Content/derechos-pcd-onu.pdf"), "application/pdf");
+            }
+            else if (true)
+            {
+                return File(Server.MapPath("~/Content/Ley-223-General-para-Personas-con-Discapacidad.pdf"), "application/pdf");
+            }
+            
+        }
+        ////public FileStreamResult GetPDF()
+        ////{
+        ////    FileStream fs = new FileStream("~/Content/derechos-pcd-onu.pdf", FileMode.Open, FileAccess.Read);
+        ////    return File(fs, "application/pdf");
+        ////}
         // GET: Right/Create
         public ActionResult Create()
         {
@@ -34,8 +63,23 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
 
         // POST: Right/Create
         [HttpPost]
-        public ActionResult Create(RightViewModel model)
+        public ActionResult Create(RightViewModel model, HttpPostedFileBase file)
         {
+            //convert to binary data
+            //byte[] newDataFile;
+            //using (Stream inputStream = file.InputStream)
+            //{
+            //    MemoryStream memoryStream = inputStream as MemoryStream;
+            //    if (memoryStream == null)
+            //    {
+            //        memoryStream = new MemoryStream();
+            //        inputStream.CopyTo(memoryStream);
+            //    }
+
+            //    newDataFile = memoryStream.ToArray();
+            //}
+            //////add to model
+            //model.FilePdf = newDataFile;
             try
             {
                 var right = Mapper.Map<RightViewModel, Right>(model);
@@ -47,7 +91,12 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
                 return View();
             }
         }
-
+        //public byte[] convertToBinaryFile(FileStream fileName)
+        //{
+        //    byte[] newFile = null;
+        //    newFile = System.IO.File.ReadAllBytes(fileName.ToString());
+        //    return newFile;
+        //}
         // GET: Right/Edit/5
         public ActionResult Edit(int id)
         {

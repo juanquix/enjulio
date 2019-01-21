@@ -14,6 +14,6 @@ namespace JulioRivero.Tesis.WebMVC.Models
         [Display(Name = "Descripción")]
         public string Description { get; set; }
         [Display(Name = "Archivo PDF")]
-        public string FilePdf { get; set; }
+        public byte[] FilePdf { get; set; }
     }
 }

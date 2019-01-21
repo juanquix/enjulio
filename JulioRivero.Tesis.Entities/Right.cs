@@ -11,6 +11,6 @@ namespace JulioRivero.Tesis.Entities
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string FilePdf { get; set; }
+        public byte[] FilePdf { get; set; }
     }
 }
