@@ -117,6 +117,22 @@ namespace JulioRivero.Tesis.EFContext
                 };
                 context.Preventions.Add(violence);
 
+                Right oms = new Right()
+                {
+                    Title = "Derechos OMS",
+                    Description = "Describe los derechos segun la OMS -Organizacion Mundial de la Salud",
+                    FilePdf = "20190122180032-derechos-pcd-onu.pdf",
+                };
+                context.Rights.Add(oms);
+
+                Right nationalLaw = new Right()
+                {
+                    Title = "Derechos segun la Ley 223 pcd",
+                    Description = "La Ley Nacional 223 para personas con discapacidad",
+                    FilePdf = "20190122180327-ley-223-general-para-personas-con-discapacidad.pdf",
+                };
+                context.Rights.Add(nationalLaw);
+
                 /*  CarPark cpOne = new CarPark()
                   {
                       CreatedOn = DateTime.Parse(DateTime.Today.ToString()),
