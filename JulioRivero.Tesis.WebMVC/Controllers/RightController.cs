@@ -17,6 +17,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Right
         public ActionResult Index()
         {
+            fillMenu();
             var rights = Mapper.Map<IList<Right>, IList<RightViewModel>>(rightManager.GetAllRights()).ToList();
             return View(rights);
         }
@@ -30,6 +31,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         
         public FileResult OpenPDF(int id)
         {
+            fillMenu();
             var model = Mapper.Map<RightViewModel>(rightManager.GetById(id));
             return File(Server.MapPath("~/Uploads/"+model.FilePdf.ToString()), "application/pdf");
         }
@@ -37,6 +39,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Right/Create
         public ActionResult Create()
         {
+            fillMenu();
             var model = new RightViewModel();
             return View(model);
         }
@@ -45,6 +48,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create(RightViewModel model, HttpPostedFileBase file)
         {
+            fillMenu();
             string archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + file.FileName).ToLower();
             string pathPlusFile = string.Format("~/Uploads/" + archivo);
             file.SaveAs(Server.MapPath(pathPlusFile));    
@@ -65,6 +69,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Right/Edit/5
         public ActionResult Edit(int id)
         {
+            fillMenu();
             var model = Mapper.Map<Right, RightViewModel>(rightManager.GetById(id));
             return View(model);
         }
@@ -73,6 +78,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Edit(int id, RightViewModel model)
         {
+            fillMenu();
             try
             {
                 var right = Mapper.Map<RightViewModel, Right>(model);
@@ -88,6 +94,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Right/Delete/5
         public ActionResult Delete(int id)
         {
+            fillMenu();
             var model = Mapper.Map<Right, RightViewModel>(rightManager.GetById(id));
             return View(model);
         }
@@ -96,6 +103,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id, RightViewModel model)
         {
+            fillMenu();
             try
             {
                 rightManager.DeleteRight(id);

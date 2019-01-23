@@ -14,13 +14,17 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Prevention
         public ActionResult Index()
         {
+            fillMenu();
             var preventions = Mapper.Map<IList<Prevention>, IList<PreventionViewModel>>(preventionManager.GetAllPreventions()).ToList();
+            ViewBag.preventionsMenu = preventions;
+           
             return View(preventions);
         }
 
         // GET: Prevention/Details/5
         public ActionResult Details(int id)
         {
+            fillMenu();
             var model = Mapper.Map<PreventionViewModel>(preventionManager.GetById(id));
             return View(model);
         }
@@ -28,6 +32,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Prevention/Create
         public ActionResult Create()
         {
+            fillMenu();
             var model = new PreventionViewModel();
             return View(model);
         }
@@ -36,6 +41,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create(PreventionViewModel model)
         {
+            fillMenu();
             try
             {
                 var prevention = Mapper.Map<PreventionViewModel, Prevention>(model);
@@ -51,6 +57,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Prevention/Edit/5
         public ActionResult Edit(int id)
         {
+            fillMenu();
             var model = Mapper.Map<Prevention, PreventionViewModel>(preventionManager.GetById(id));
             return View(model);
         }
@@ -59,6 +66,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Edit(int id, PreventionViewModel model)
         {
+            fillMenu();
             try
             {
                 var prevention = Mapper.Map<PreventionViewModel, Prevention>(model);
@@ -74,6 +82,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Prevention/Delete/5
         public ActionResult Delete(int id)
         {
+            fillMenu();
             var model = Mapper.Map<Prevention, PreventionViewModel>(preventionManager.GetById(id));
             return View(model);
         }
@@ -82,6 +91,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id, PreventionViewModel model)
         {
+            fillMenu();
             try
             {
                 preventionManager.DeletePrevention(id);

@@ -14,6 +14,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Imparirment
         public ActionResult Index()
         {
+            fillMenu();
             var imparirments = Mapper.Map<IList<Impairment>, IList<ImpairmentViewModel>>(ImpairmentManager.GetAllImpairments()).ToList();
             return View(imparirments);
         }
@@ -21,6 +22,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Imparirment/Details/5
         public ActionResult Details(int id)
         {
+            fillMenu();
             var model = Mapper.Map<ImpairmentViewModel>(ImpairmentManager.GetById(id));
             return View(model);
         }
@@ -28,6 +30,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Imparirment/Create
         public ActionResult Create()
         {
+            fillMenu();
             var model = new ImpairmentViewModel();
             return View(model);
         }
@@ -36,6 +39,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create(ImpairmentViewModel model)
         {
+            fillMenu();
             try
             {
                 var impairment = Mapper.Map<ImpairmentViewModel, Impairment>(model);
@@ -51,6 +55,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Imparirment/Edit/5
         public ActionResult Edit(int id)
         {
+            fillMenu();
             var model = Mapper.Map<Impairment, ImpairmentViewModel>(ImpairmentManager.GetById(id));
             return View(model);
         }
@@ -59,6 +64,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Edit(int id, ImpairmentViewModel model)
         {
+            fillMenu();
             try
             {
                 var impairment = Mapper.Map<ImpairmentViewModel, Impairment>(model);
@@ -74,6 +80,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Imparirment/Delete/5
         public ActionResult Delete(int id)
         {
+            fillMenu();
             var model = Mapper.Map<Impairment, ImpairmentViewModel>(ImpairmentManager.GetById(id));
             return View(model);
         }
@@ -82,6 +89,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id, ImpairmentViewModel model)
         {
+            fillMenu();
             try
             {
                 ImpairmentManager.DeleteImpairment(id);
