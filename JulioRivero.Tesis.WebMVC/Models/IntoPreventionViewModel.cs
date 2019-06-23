@@ -9,6 +9,7 @@ namespace JulioRivero.Tesis.WebMVC.Models
     public class IntoPreventionViewModel
     {
         public int Id { get; set; }
+        public int PreventionId { get; set; }
         [Display(Name = "Tipo")]
         public string Kind { get; set; }
         [Display(Name = "Titulo")]

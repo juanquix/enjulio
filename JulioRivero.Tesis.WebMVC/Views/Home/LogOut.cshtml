@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "LogOut";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>LogOut</h2>
+
+    <h2>Desea cerrar sesion?</h2>
+    <form action="/Home/LogOut" method="post">
+        <input type="text" name="number" value="number" hidden>
+        <button class="btn btn-primary" type="submit">
+            Aceptar
+        </button>
+
+        <a href='@Url.Action("index", "Impairment")'>
+            <input type='button' class="btn" value='Cancelar' />
+        </a>
+
+    </form>
+    <br />
+    <br />

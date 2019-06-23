@@ -15,6 +15,6 @@ namespace JulioRivero.Tesis.Entities
         public string Telefono { get; set; }
         public string Email { get; set; }
         public string Ci { get; set; }
-        public ICollection<Role> OrdenDeCompraDetalle { get; set; }
+       // public ICollection<Role> OrdenDeCompraDetalle { get; set; }
     }
 }

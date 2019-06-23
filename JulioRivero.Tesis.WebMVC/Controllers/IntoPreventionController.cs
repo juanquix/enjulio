@@ -14,6 +14,8 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: IntoPrevention
         public ActionResult Index()
         {
+            fillMenu();
+            ViewBag.LastNameUser = lastName;
             var intoPreventions = Mapper.Map<IList<IntoPrevention>, IList<IntoPreventionViewModel>>(intoPreventionManager.GetAllIntoPreventions()).ToList();
             return View(intoPreventions);
         }
@@ -21,6 +23,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: IntoPrevention/Details/5
         public ActionResult Details(int id)
         {
+            fillMenu();
             var model = Mapper.Map<IntoPreventionViewModel>(intoPreventionManager.GetById(id));
             return View(model);
         }
@@ -28,6 +31,8 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: IntoPrevention/Create
         public ActionResult Create()
         {
+            fillMenu();
+            ViewBag.LastNameUser = lastName;
             var model = new IntoPreventionViewModel();
             return View(model);
         }
@@ -36,6 +41,8 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create(IntoPreventionViewModel model)
         {
+            fillMenu();
+            ViewBag.LastNameUser = lastName;
             try
             {
                 var intoPrevention = Mapper.Map<IntoPreventionViewModel, IntoPrevention>(model);
@@ -51,6 +58,8 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: IntoPrevention/Edit/5
         public ActionResult Edit(int id)
         {
+            fillMenu();
+            ViewBag.LastNameUser = lastName;
             var model = Mapper.Map<IntoPrevention, IntoPreventionViewModel>(intoPreventionManager.GetById(id));
             return View(model);
         }
@@ -59,6 +68,8 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Edit(int id, IntoPreventionViewModel model)
         {
+            fillMenu();
+            ViewBag.LastNameUser = lastName;
             try
             {
                 var intoPrevention = Mapper.Map<IntoPreventionViewModel, IntoPrevention>(model);
@@ -74,6 +85,8 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: IntoPrevention/Delete/5
         public ActionResult Delete(int id)
         {
+            fillMenu();
+            ViewBag.LastNameUser = lastName;
             var model = Mapper.Map<IntoPrevention, IntoPreventionViewModel>(intoPreventionManager.GetById(id));
             return View(model);
         }
@@ -82,6 +95,8 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id, IntoPreventionViewModel model)
         {
+            fillMenu();
+            ViewBag.LastNameUser = lastName;
             try
             {
                 intoPreventionManager.DeleteIntoPrevention(id);

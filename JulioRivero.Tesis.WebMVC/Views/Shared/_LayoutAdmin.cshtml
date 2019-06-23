@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
+
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/modernizr")>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="font-family:'Merriweather Sans', sans-serif;font-size:12px;;">
@@ -21,43 +21,41 @@
                 <!-- LOGO -->
                 <a class="navbar-brand" href="#"><span style="color:#fff;">Site1</span></a>
 
-
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-                    <li @ViewBag.Inicio>@Html.ActionLink("HOME", "Index", "Home")</li>
                     <li @ViewBag.Impairment class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">DISCAPACIDAD<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            @foreach (var item in ViewBag.impairmentsMenu)
-                            {
-                                <li><a href="@String.Format("/Impairment/Details/{0}", item.Id)">@item.Name</a></li>
-                            }
+                            <li>@Html.ActionLink("Discapacidad", "Index", "Impairment")</li>
+                            <li>@Html.ActionLink("Deficiencia", "Index", "Deficiency")</li>
                         </ul>
                     </li>
                     <li @ViewBag.Prevention class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PREVENCION<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            @foreach (var prevention in ViewBag.preventionsMenu)
-                            {
-                                <li><a href="@String.Format("/Prevention/Details/{0}", prevention.Id)">@prevention.Name</a></li>
-                            }
+                            <li>@Html.ActionLink("Prevencion", "Index", "Prevention")</li>
+                            <li>@Html.ActionLink("Caracteristicas", "Index", "IntoPrevention")</li>
                         </ul>
                     </li>
                     <li @ViewBag.Right class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">DERECHOS <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">DERECHOS<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            @foreach (var prevention in ViewBag.rightsMenu)
-                            {
-                                <li><a href="@String.Format("/Right/OpenPDF/{0}", prevention.Id)">@prevention.Title</a></li>
-                            }
+                            <li>@Html.ActionLink("Derechos", "Index", "Right")</li>
                         </ul>
                     </li>
-                    <li @ViewBag.Login>@Html.ActionLink("LOGIN", "CreateLogin", "User")</li>
+                    <li @ViewBag.User class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CUENTA<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Usuario", "Index", "User")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("LOGOUT", "LogOut", "Home")</li>
                 </ul>
-            </div><!--/.nav-collapse //nameMenu-->
+            </div><!--/.nav-collapse -->
         </div>
     </nav>
+
 
     <div class="container body-content">
         @RenderBody()

@@ -35,6 +35,13 @@ namespace JulioRivero.Tesis.Biz
         {
             return _userDao.GetForId(id);
         }
+        //GetByCi
+        public User GetByCi(string pwd)
+        {
+            var users = _userDao.GetAll().ToList();
+            var user = users.SingleOrDefault(r => r.Ci == pwd);
+            return user;
+        }
         public bool DeleteUser(int id)
         {
             var user = _userDao.GetForId(id);

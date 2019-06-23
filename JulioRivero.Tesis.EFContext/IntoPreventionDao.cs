@@ -56,6 +56,7 @@ namespace JulioRivero.Tesis.EFContext
                 var intoPreventionUpdate = context.IntoPreventions.SingleOrDefault(r => r.Id == intoPrevention.Id);
                 if (intoPreventionUpdate != null)
                 {
+                    intoPreventionUpdate.PreventionId = intoPrevention.PreventionId;
                     intoPreventionUpdate.Kind = intoPrevention.Kind;
                     intoPreventionUpdate.Title = intoPrevention.Title;
                     intoPreventionUpdate.Description = intoPrevention.Description;

@@ -14,9 +14,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         public ActionResult Index()
         {
             fillMenu();
-            //var imparirments = Mapper.Map<IList<Impairment>, IList<ImpairmentViewModel>>(ImpairmentManager.GetAllImpairments()).ToList();
-            //ViewBag.impairmentsMenu = imparirments;
-            //ViewData["impairmentsMenu"] = imparirments;
             return View();
         }
 
@@ -24,16 +21,31 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         {
             fillMenu();
             ViewBag.Message = "Your application description page.";
-
-            return View();
+            return View("Contact", "_LayoutAdmin");//
         }
 
-        public ActionResult Contact()
+        public ActionResult LogOut()
         {
             fillMenu();
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.LastNameUser = lastName;
             return View();
         }
+
+        // POST: User/Create
+        [HttpPost]
+        public ActionResult LogOut(string number)
+        {
+            fillMenu();
+            ViewBag.LastNameUser = lastName;
+            if (number != null)
+            {
+                if (number.CompareTo("number") == 0)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return View();
+        }
+        //
     }
 }

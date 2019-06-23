@@ -265,6 +265,10 @@
     <Content Include="Views\Right\OpenPDF.cshtml" />
     <Content Include="Uploads\20190122180032-derechos-pcd-onu.pdf" />
     <Content Include="Uploads\20190122180327-ley-223-general-para-personas-con-discapacidad.pdf" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\User\CreateLogin.cshtml" />
+    <Content Include="Views\User\Contact.cshtml" />
+    <Content Include="Views\Home\LogOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

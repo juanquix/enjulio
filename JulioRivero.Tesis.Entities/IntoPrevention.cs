@@ -9,6 +9,7 @@ namespace JulioRivero.Tesis.Entities
     public class IntoPrevention
     {
         public int Id { get; set; }
+        public int PreventionId { get; set; }
         public string Kind { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

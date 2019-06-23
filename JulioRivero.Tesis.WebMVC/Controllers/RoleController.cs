@@ -14,6 +14,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Role
         public ActionResult Index()
         {
+            fillMenu();
             var roles = Mapper.Map<IList<Role>, IList<RoleViewModel>>(roleManager.GetAllRoles()).ToList();
             return View(roles);
         }
@@ -21,6 +22,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Role/Details/5
         public ActionResult Details(int id)
         {
+            fillMenu();
             var model = Mapper.Map<RoleViewModel>(roleManager.GetById(id));
             return View(model);
         }
@@ -28,6 +30,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Role/Create
         public ActionResult Create()
         {
+            fillMenu();
             var model = new RoleViewModel();
             return View(model);
         }
@@ -36,6 +39,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create(RoleViewModel model)
         {
+            fillMenu();
             try
             {
                 var role = Mapper.Map<RoleViewModel, Role>(model);
@@ -51,6 +55,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Role/Edit/5
         public ActionResult Edit(int id)
         {
+            fillMenu();
             var model = Mapper.Map<Role, RoleViewModel>(roleManager.GetById(id));
             return View(model);
         }
@@ -59,6 +64,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Edit(int id, RoleViewModel model)
         {
+            fillMenu();
             try
             {
                 var role = Mapper.Map<RoleViewModel, Role>(model);
@@ -74,6 +80,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Role/Delete/5
         public ActionResult Delete(int id)
         {
+            fillMenu();
             var model = Mapper.Map<Role, RoleViewModel>(roleManager.GetById(id));
             return View(model);
         }
@@ -82,6 +89,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id, RoleViewModel model)
         {
+            fillMenu();
             try
             {
                 roleManager.DeleteRole(id);

@@ -14,8 +14,10 @@ namespace JulioRivero.Tesis.EFContext
         {
             using (var context = new TesisContext())
             {
-                context.Deficiencys.Add(deficiency);
+                context.Deficiencis.Add(deficiency);
                 context.SaveChanges();
+                //context.Deficiencis.Add(deficiency);
+                //context.SaveChanges();
             }
         }
 
@@ -23,20 +25,20 @@ namespace JulioRivero.Tesis.EFContext
         {
             using (var context = new TesisContext())
             {
-                var deficiencyDelete = context.Deficiencys.SingleOrDefault(r => r.Id == deficiency.Id);
-                context.Deficiencys.Remove(deficiencyDelete);
+                var deficiencyDelete = context.Deficiencis.SingleOrDefault(r => r.Id == deficiency.Id);
+                context.Deficiencis.Remove(deficiencyDelete);
                 context.SaveChanges();
             }
         }
 
         public ICollection<Deficiency> GetAll()
         {
-            List<Deficiency> deficiencys;
+            List<Deficiency> deficiencis;
             using (var context = new TesisContext())
             {
-                deficiencys = context.Deficiencys.ToList();
+                deficiencis = context.Deficiencis.ToList();
             }
-            return deficiencys;
+            return deficiencis;
         }
 
         public Deficiency GetForId(int id)
@@ -44,7 +46,7 @@ namespace JulioRivero.Tesis.EFContext
             Deficiency deficiency;
             using (var context = new TesisContext())
             {
-                deficiency = context.Deficiencys.SingleOrDefault(r => r.Id == id);
+                deficiency = context.Deficiencis.SingleOrDefault(r => r.Id == id);
             }
             return deficiency;
         }
@@ -53,7 +55,7 @@ namespace JulioRivero.Tesis.EFContext
         {
             using (var context = new TesisContext())
             {
-                var deficiencyUpdate = context.Deficiencys.SingleOrDefault(r => r.Id == deficiency.Id);
+                var deficiencyUpdate = context.Deficiencis.SingleOrDefault(r => r.Id == deficiency.Id);
                 if (deficiencyUpdate != null)
                 {
                     deficiencyUpdate.ImpairmentId = deficiency.ImpairmentId;

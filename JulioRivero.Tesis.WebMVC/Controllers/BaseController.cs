@@ -13,6 +13,7 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
 {
     public class BaseController : Controller
     {
+        public static string lastName = string.Empty;
         protected ImpairmentManager ImpairmentManager = new ImpairmentManager(new ImpairmentDao());
         protected DeficiencyManager deficiencyManager = new DeficiencyManager(new DeficiencyDao());
         protected UserManager userManager = new UserManager(new UserDao());
@@ -30,6 +31,5 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
             var rights = Mapper.Map<IList<Right>, IList<RightViewModel>>(rightManager.GetAllRights()).ToList();
             ViewBag.rightsMenu = rights;
         }
-
     }
 }

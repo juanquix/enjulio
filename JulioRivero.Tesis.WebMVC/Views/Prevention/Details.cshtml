@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Prevention = "class = active";
 }
 
 <h2>Details</h2>
@@ -41,3 +42,22 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+@*<button data-toggle="collapse" data-target="#demo">Collapsible</button>
+
+<div id="demo" class="collapse">
+    Lorem ipsum dolor text....
+</div>*@
+
+@foreach (var item in ViewBag.ownData)
+{
+    @*<span> @item.Kind </span>    <br>*@
+    <button data-toggle="collapse" data-target="#@item.Id"> @item.Title </button>   
+}
+@foreach (var item in ViewBag.ownData)
+{
+    <div id="@item.Id" class="collapse">
+        @item.Description   <br> <br>
+        <span> @item.Prevention </span>    <br>
+    </div>
+}
