@@ -19,7 +19,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Deficiency
         public ActionResult Index()
         {
-            //fillMenu();
             ViewBag.LastNameUser = lastName;
             var deficiencys = Mapper.Map<IList<Deficiency>, IList<DeficiencyViewModel>>(deficiencyManager.GetAllDeficiencys()).ToList();
             return View(deficiencys);
@@ -28,7 +27,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Deficiency/Details/5
         public ActionResult Details(int id)
         {
-           // fillMenu();
             var model = Mapper.Map<DeficiencyViewModel>(deficiencyManager.GetById(id));
             return View(model);
         }
@@ -36,7 +34,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Deficiency/Create
         public ActionResult Create()
         {
-            // fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = new DeficiencyViewModel();
             return View(model);
@@ -46,7 +43,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create(DeficiencyViewModel model)
         {
-            // fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {
@@ -64,7 +60,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Deficiency/Edit/5
         public ActionResult Edit(int id)
         {
-            // fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = Mapper.Map<Deficiency, DeficiencyViewModel>(deficiencyManager.GetById(id));
             return View(model);
@@ -74,7 +69,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Edit(int id, DeficiencyViewModel model)
         {
-            //  fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {
@@ -91,7 +85,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Deficiency/Delete/5
         public ActionResult Delete(int id)
         {
-            //  fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = Mapper.Map<Deficiency, DeficiencyViewModel>(deficiencyManager.GetById(id));
             return View(model);
@@ -101,7 +94,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id, DeficiencyViewModel model)
         {
-            //  fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {

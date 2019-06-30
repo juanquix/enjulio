@@ -13,10 +13,11 @@ namespace JulioRivero.Tesis.WebMVC.Models
         public string Kind { get; set; }
         [Display(Name = "Nombre")]
         public string Name { get; set; }
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Descripción")]
         public string Description { get; set; }
-
-
+        [Display(Name = "Visitas")]
+        public int VisitCount { get; set; }
         public ICollection<DeficiencyViewModel> deficiencysViewModel { get; set; }
     }
 }

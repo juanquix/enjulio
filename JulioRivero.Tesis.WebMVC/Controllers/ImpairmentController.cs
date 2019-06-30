@@ -12,12 +12,18 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
 {
     public class ImpairmentController : BaseController
     {
+        public ImpairmentController()
+        {
+            fillMenu();
+        }
         // GET: Imparirment
         public ActionResult Index()
         {
-            fillMenu();
+            //aqui se puede mostrar el total de visitas de todos los impairments
             ViewBag.LastNameUser = lastName;
+            
             var imparirments = Mapper.Map<IList<Impairment>, IList<ImpairmentViewModel>>(ImpairmentManager.GetAllImpairments()).ToList();
+            ViewBag.TotalImpairment = imparirments.Sum(item => item.VisitCount);
             return View(imparirments);
         }
         enum Impairments  //quizas llevar esto a un lugar mas organizado
@@ -32,11 +38,12 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Imparirment/Details/5
         public ActionResult Details(int id)
         {
-            fillMenu();
-          
-            var model = Mapper.Map<ImpairmentViewModel>(ImpairmentManager.GetById(id));
-           // var intoPreventions = Mapper.Map<IList<IntoPrevention>, IList<IntoPreventionViewModel>>(intoPreventionManager.GetAllIntoPreventions()).ToList();
+            var modelCount = Mapper.Map<Impairment, ImpairmentViewModel>(ImpairmentManager.GetById(id));
+            modelCount.VisitCount++;
+            var impairment = Mapper.Map<ImpairmentViewModel, Impairment>(modelCount);
+            ImpairmentManager.StoreImpairment(impairment);
 
+            var model = Mapper.Map<ImpairmentViewModel>(ImpairmentManager.GetById(id));
             var deficiencis = Mapper.Map<IList<Deficiency>, IList<DeficiencyViewModel>>(deficiencyManager.GetAllDeficiencys()).ToList();
 
             if (id == (int)Impairments.Adquiridas)
@@ -76,7 +83,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Imparirment/Create
         public ActionResult Create()
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = new ImpairmentViewModel();
             return View(model);
@@ -86,7 +92,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create(ImpairmentViewModel model)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {
@@ -103,7 +108,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Imparirment/Edit/5
         public ActionResult Edit(int id)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = Mapper.Map<Impairment, ImpairmentViewModel>(ImpairmentManager.GetById(id));
             return View(model);
@@ -113,7 +117,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Edit(int id, ImpairmentViewModel model)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {
@@ -130,7 +133,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Imparirment/Delete/5
         public ActionResult Delete(int id)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = Mapper.Map<Impairment, ImpairmentViewModel>(ImpairmentManager.GetById(id));
             return View(model);
@@ -140,7 +142,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id, ImpairmentViewModel model)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {

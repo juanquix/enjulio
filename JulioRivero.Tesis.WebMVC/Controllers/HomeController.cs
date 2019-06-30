@@ -11,22 +11,23 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
 {
     public class HomeController : BaseController
     {
-        public ActionResult Index()
+        public HomeController()
         {
             fillMenu();
+        }
+        public ActionResult Index()
+        {
             return View();
         }
 
         public ActionResult About()
         {
-            fillMenu();
             ViewBag.Message = "Your application description page.";
             return View("Contact", "_LayoutAdmin");//
         }
 
         public ActionResult LogOut()
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             return View();
         }
@@ -35,7 +36,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult LogOut(string number)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             if (number != null)
             {
@@ -46,6 +46,5 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
             }
             return View();
         }
-        //
     }
 }

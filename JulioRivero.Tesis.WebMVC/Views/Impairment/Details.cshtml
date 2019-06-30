@@ -1,119 +1,56 @@
 ﻿@model JulioRivero.Tesis.WebMVC.Models.ImpairmentViewModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Discapacidad";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Impairment = "class = active";
 }
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-@section Scripts {
-    <script>
 
-        $(document).ready(function () {
-            $("#hide").on('click', function () {
-                $("#element").hide();
-                return false;
-            });
-
-            $("#show").on('click', function () {
-                $("#element").show();
-                return false;
-            });
-        });
-
-
-        $(document).ready(function () {
-            $("#botonocultamuestra").click(function () {
-                $("#divocultamuestra").each(function () {
-                    displaying = $(this).css("display");
-                    if (displaying == "block") {
-                        $(this).fadeOut('slow', function () {
-                            $(this).css("display", "none");
-                        });
-                    } else {
-                        $(this).fadeIn('slow', function () {
-                            $(this).css("display", "block");
-                        });
-                    }
-                });
-            });
-        });
-
-        function apagar() {
-            var espacio = document.getElementById("contenedor");
-            //espacio.style.visibility="hidden";
-            espacio.style.display = "none";
-        }
-        function prender() {
-            var espacio = document.getElementById("contenedor");
-            //espacio.style.visibility="visible";
-            espacio.style.display = "block";
-        }
-        function apagarPrender() {
-            var espacio = document.getElementById("contenedor");
-            var boton = document.getElementById("boton");
-            if (espacio.style.display == "block") {
-                apagar();
-                boton.value = "Mostrar";
-            } else {
-                prender();
-                boton.value = "Ocultar";
-            }
-        }
-</script>
-}
-
-<div id="divquesemuestra" style="background:#000000;display:none;width:100px;height:100px;"></div>
-
-<h2>Details</h2>
-
-<div>
-    <h4>ImpairmentViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Kind)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Kind)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-    </dl>
+<div class="container text-center  container-fluid" style="background-color:#EFFBFB;color:#0B3861;">
+    <h2>@Html.DisplayFor(model => model.Kind) @Html.DisplayFor(model => model.Name)</h2>
+    <p>@Html.DisplayFor(model => model.Description)</p>
 </div>
-
-
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
-
-@foreach (var item in ViewBag.ownData)
+@if (ViewBag.ownData != null)
 {
-    @*<span> @item.Kind </span>    <br>*@
-    <button data-toggle="collapse" data-target="#@item.Id"> @item.Name </button>
+    foreach (var item in ViewBag.ownData)
+    {
+        <button class="btn btn-info" data-toggle="collapse" data-target="#@item.Id"> @item.Name </button>
+    }
+
+    foreach (var item in ViewBag.ownData)
+    {
+        <div id="@item.Id" class="collapse container">
+            <h2 class="text-center">@item.Name </h2>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">INTRODUCCION</div>
+                <div class="panel-body">
+                    <div>
+                        @item.Introduction
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">SINTOMAS</div>
+                <div class="panel-body">
+                    <div>
+                        <span> @item.Symptom </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">PREVENCION</div>
+                <div class="panel-body">
+                    <div>
+                        <span> @item.Prevention </span>
+                    </div>
+                </div>
+            </div>
+            <hr />
+        </div>
+    }
 }
-@foreach (var item in ViewBag.ownData)
-{
-    <div id="@item.Id" class="collapse">
-        @item.Introduction   <br> <br>
-        <span> @item.Symptom </span>    <br> <br>
-        <span> @item.Prevention </span>    <br>
-    </div>
-}
+
+

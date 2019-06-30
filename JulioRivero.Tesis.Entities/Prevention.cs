@@ -13,5 +13,6 @@ namespace JulioRivero.Tesis.Entities
         public string Kind { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public int VisitCount { get; set; }
     }
 }

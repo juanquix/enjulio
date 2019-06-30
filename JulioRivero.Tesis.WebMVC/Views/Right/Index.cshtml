@@ -1,18 +1,20 @@
 ﻿@model IEnumerable<JulioRivero.Tesis.WebMVC.Models.RightViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Derechos";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     ViewBag.Right = "class = active";
 }
-<h2>Bienvenido al sistema "@ViewBag.LastNameUser"</h2>
-<h2>Index</h2>
+<div class="text-center">
+    <h2>Bienvenido al sistema "@ViewBag.LastNameUser"</h2>
+    <h2>Lista de derechos</h2>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
+<div class=" col-md-1">
+    <a href="/Right/Create" data-toggle="tooltip" title="Crear Derecho"><span class="glyphicon glyphicon-plus " aria-hidden="true"></span></a>
+</div>
+<table class="table table-condensed table-hover">
+    <tr class="active info" id="tablas">
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
@@ -37,8 +39,8 @@
             @Html.DisplayFor(modelItem => item.FilePdf)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            <a href="/Right/Delete/@item.Id" data-toggle="tooltip" title="Eliminar"><span class="glyphicon  glyphicon-trash" aria-hidden="true" style="color:red"></span></a>
+
         </td>
     </tr>
 }

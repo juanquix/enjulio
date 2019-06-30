@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using JulioRivero.Tesis.Biz;
 using JulioRivero.Tesis.Entities;
 using JulioRivero.Tesis.WebMVC.Models;
 using System;
@@ -11,14 +12,17 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
 {
     public class PreventionController : BaseController
     {
+        public PreventionController()
+        {
+            fillMenu();
+        }
         // GET: Prevention
         public ActionResult Index()
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
+
             var preventions = Mapper.Map<IList<Prevention>, IList<PreventionViewModel>>(preventionManager.GetAllPreventions()).ToList();
-            ViewBag.preventionsMenu = preventions;
-           
+            ViewBag.TotalPrevention = preventions.Sum(item => item.VisitCount);
             return View(preventions);
         }
         enum Preventions  //quizas llevar esto a un lugar mas organizado
@@ -30,7 +34,11 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Prevention/Details/5
         public ActionResult Details(int id)
         {
-            fillMenu();
+            var modelCount = Mapper.Map<Prevention, PreventionViewModel>(preventionManager.GetById(id));
+            modelCount.VisitCount++;
+            var prevention = Mapper.Map<PreventionViewModel, Prevention>(modelCount);
+            preventionManager.StorePrevention(prevention);
+
             var model = Mapper.Map<PreventionViewModel>(preventionManager.GetById(id));
             var intoPreventions = Mapper.Map<IList<IntoPrevention>, IList<IntoPreventionViewModel>>(intoPreventionManager.GetAllIntoPreventions()).ToList();
 
@@ -56,7 +64,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Prevention/Create
         public ActionResult Create()
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = new PreventionViewModel();
             return View(model);
@@ -66,7 +73,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create(PreventionViewModel model)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {
@@ -83,7 +89,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Prevention/Edit/5
         public ActionResult Edit(int id)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = Mapper.Map<Prevention, PreventionViewModel>(preventionManager.GetById(id));
             return View(model);
@@ -93,7 +98,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Edit(int id, PreventionViewModel model)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {
@@ -110,7 +114,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Prevention/Delete/5
         public ActionResult Delete(int id)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = Mapper.Map<Prevention, PreventionViewModel>(preventionManager.GetById(id));
             return View(model);
@@ -120,7 +123,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id, PreventionViewModel model)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {

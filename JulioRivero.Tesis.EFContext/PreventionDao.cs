@@ -59,6 +59,7 @@ namespace JulioRivero.Tesis.EFContext
                     preventionUpdate.Kind = prevention.Kind;
                     preventionUpdate.Name = prevention.Name;
                     preventionUpdate.Description = prevention.Description;
+                    preventionUpdate.VisitCount = prevention.VisitCount;
                 }
                 context.SaveChanges();
             }

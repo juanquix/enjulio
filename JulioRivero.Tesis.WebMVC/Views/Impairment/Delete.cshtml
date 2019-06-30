@@ -1,16 +1,17 @@
 ﻿@model JulioRivero.Tesis.WebMVC.Models.ImpairmentViewModel
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     ViewBag.Impairment = "class = active";
 }
-<h2>Bienvenido al sistema "@ViewBag.LastNameUser"</h2>
-<h2>Delete</h2>
+<h2 class="text-center">Bienvenido al sistema "@ViewBag.LastNameUser"</h2>
+<div style="color:red"> 
+    <h2>Eliminar</h2>
+    <h3>Estas seguro que quieres eliminar esto?</h3>
+</div>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>ImpairmentViewModel</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -41,9 +42,9 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="form-actions " style="color:red">
+            <input type="submit" value="Delete" class="btn btn-danger" /><br/>
         </div>
     }
 </div>
+<a href="@Url.Action("Index", "Impairment")" class="btn btn-info glyphicon  glyphicon-arrow-left col-md-1 " style="color : white" data-toggle="tooltip" title="Volver a Lista"></a>

@@ -1,20 +1,18 @@
 ﻿@model JulioRivero.Tesis.WebMVC.Models.ImpairmentViewModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Discapacidad";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     ViewBag.Impairment = "class = active";
 }
-<h2>Bienvenido al sistema "@ViewBag.LastNameUser"</h2>
-<h2>Edit</h2>
-
+<h2 class="text-center">Bienvenido al sistema "@ViewBag.LastNameUser"</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>ImparirmentViewModel</h4>
+        <h4>Editar discapacidad</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -40,8 +38,7 @@
                 @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
-        </div>
-        
+        </div>        
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
@@ -50,8 +47,8 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="col-md-offset-2 col-md-10">
+    <a href="@Url.Action("Index", "Impairment")" class="btn btn-info glyphicon  glyphicon-arrow-left col-md-1 " style="color : white" data-toggle="tooltip" title="Volver a Lista"></a>
 </div>
 
 @section Scripts {

@@ -14,25 +14,20 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
 {
     public class RightController : BaseController
     {
+        public RightController()
+        {
+            fillMenu();
+        }
         // GET: Right
         public ActionResult Index()
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var rights = Mapper.Map<IList<Right>, IList<RightViewModel>>(rightManager.GetAllRights()).ToList();
             return View(rights);
         }
-
-        // GET: Right/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    var model = Mapper.Map<RightViewModel>(rightManager.GetById(id));
-        //    return View(model);
-        //}
         
         public FileResult OpenPDF(int id)
         {
-            fillMenu();
             var model = Mapper.Map<RightViewModel>(rightManager.GetById(id));
             return File(Server.MapPath("~/Uploads/"+model.FilePdf.ToString()), "application/pdf");
         }
@@ -40,7 +35,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Right/Create
         public ActionResult Create()
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = new RightViewModel();
             return View(model);
@@ -50,7 +44,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create(RightViewModel model, HttpPostedFileBase file)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             string archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + file.FileName).ToLower();
             string pathPlusFile = string.Format("~/Uploads/" + archivo);
@@ -72,7 +65,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Right/Edit/5
         public ActionResult Edit(int id)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = Mapper.Map<Right, RightViewModel>(rightManager.GetById(id));
             return View(model);
@@ -82,7 +74,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Edit(int id, RightViewModel model)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {
@@ -99,7 +90,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: Right/Delete/5
         public ActionResult Delete(int id)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = Mapper.Map<Right, RightViewModel>(rightManager.GetById(id));
             return View(model);
@@ -109,7 +99,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id, RightViewModel model)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {

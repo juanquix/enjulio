@@ -1,18 +1,20 @@
 ﻿@model IEnumerable<JulioRivero.Tesis.WebMVC.Models.PreventionViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Prevención";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     ViewBag.Prevention = "class = active";
 }
-<h2>Bienvenido al sistema "@ViewBag.LastNameUser"</h2>
-<h2>Index</h2>
+<div class="text-center">
+    <h2>Bienvenido al sistema "@ViewBag.LastNameUser"</h2>
+    <h3>Lista de Prevención - Total Visitas: @ViewBag.TotalPrevention</h3>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
+<div class=" col-md-1">
+    <a href="/Prevention/Create" data-toggle="tooltip" title="Crear prevención"><span class="glyphicon glyphicon-plus " aria-hidden="true"></span></a>
+</div>
+<table class="table  table-condensed table-hover">
+    <tr class="active info" id="tablas">
         <th>
             @Html.DisplayNameFor(model => model.Kind)
         </th>
@@ -21,6 +23,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VisitCount)
         </th>
         <th></th>
     </tr>
@@ -37,8 +42,12 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.DisplayFor(modelItem => item.VisitCount)
+        </td>
+        <td>
+            <a href="/Prevention/Edit/@item.Id" data-toggle="tooltip" title="Editar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+            @*<text>|</text>*@
+            <a href="/Prevention/Delete/@item.Id" data-toggle="tooltip" title="Eliminar"><span class="glyphicon  glyphicon-trash" aria-hidden="true" style="color:red"></span></a>
         </td>
     </tr>
 }

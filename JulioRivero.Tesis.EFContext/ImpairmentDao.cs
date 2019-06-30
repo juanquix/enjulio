@@ -59,7 +59,7 @@ namespace JulioRivero.Tesis.EFContext
                     imparirmentUpdate.Kind = imparirment.Kind;
                     imparirmentUpdate.Name = imparirment.Name;
                     imparirmentUpdate.Description = imparirment.Description;
-                    
+                    imparirmentUpdate.VisitCount = imparirment.VisitCount;
                 }
                 context.SaveChanges();
             }

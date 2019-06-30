@@ -11,10 +11,13 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
 {
     public class UserController : BaseController
     {
+        public UserController()
+        {
+            fillMenu();
+        }
         // GET: User
         public ActionResult Index()
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
            
             var users = Mapper.Map<IList<User>, IList<UserViewModel>>(userManager.GetAllUsers()).ToList();
@@ -24,7 +27,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: User/Details/5
         public ActionResult Details(int id)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = Mapper.Map<UserViewModel>(userManager.GetById(id));
             return View(model);
@@ -33,7 +35,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: User/Create
         public ActionResult Create()
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = new UserViewModel();
             return View(model);
@@ -43,7 +44,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create(UserViewModel model)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {
@@ -60,7 +60,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: User/Edit/5
         public ActionResult Edit(int id)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = Mapper.Map<User, UserViewModel>(userManager.GetById(id));
             return View(model);
@@ -70,7 +69,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Edit(int id, UserViewModel model)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {
@@ -87,7 +85,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         // GET: User/Delete/5
         public ActionResult Delete(int id)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             var model = Mapper.Map<User, UserViewModel>(userManager.GetById(id));
             return View(model);
@@ -97,7 +94,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id, UserViewModel model)
         {
-            fillMenu();
             ViewBag.LastNameUser = lastName;
             try
             {
@@ -112,14 +108,12 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         //
         public ActionResult CreateLogin(UserViewModel model)
         {
-            fillMenu();
             return View();
         }
 
         [HttpPost]
         public ActionResult CreateLogin(string usr, string pwd)
         {
-            fillMenu();
             var model = Mapper.Map<User, UserViewModel>(userManager.GetByCi(pwd));
             if (model != null)
             {
@@ -127,7 +121,6 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
                 {
                     lastName = model.SecondName;
                     ViewBag.LastNameUser = model.SecondName;
-                    //return View("Contact", "_LayoutAdmin", model);
                     return RedirectToAction("Index","Impairment");
                 }
                 else
@@ -144,10 +137,8 @@ namespace JulioRivero.Tesis.WebMVC.Controllers
         }
         public ActionResult Contact(UserViewModel model)
         {
-            fillMenu();
             ViewBag.LastNameUser = model.SecondName;
             return View();
         }
-        //
     }
 }

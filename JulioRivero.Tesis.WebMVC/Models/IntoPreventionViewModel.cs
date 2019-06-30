@@ -14,8 +14,10 @@ namespace JulioRivero.Tesis.WebMVC.Models
         public string Kind { get; set; }
         [Display(Name = "Titulo")]
         public string Title { get; set; }
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Descripción")]
         public string Description { get; set; }
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Prevención")]
         public string Prevention { get; set; }
     }
